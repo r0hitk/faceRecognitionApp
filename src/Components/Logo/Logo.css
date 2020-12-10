@@ -1,3 +1,12 @@
 .Tilt{
     background:  rgb(208, 208, 0)
 }
+
+.logo{
+    display: flex;
+}
+
+.logoPlacement{
+    align-items: center;
+    justify-content: center;
+}
