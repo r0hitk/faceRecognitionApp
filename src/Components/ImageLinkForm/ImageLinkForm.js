@@ -4,9 +4,9 @@ import "./ImageLinkForm.css"
 const ImageLinkForm = () => {
   return (
     <div>
-      <p>
+      <p className="white">
         {
-          "This application detects faces in the pictures which you provide. Give it a go!"
+          "This app detects faces in the pictures which you provide. Give it a go!"
         }
       </p>
       <div className="center">
