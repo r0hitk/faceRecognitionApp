@@ -11,7 +11,7 @@ const Logo = () => {
         options={{ max: 55 }}
         style={{ height: 100, width: 100 }}
       >
-        <div className="Tilt-inner"><img src={face} alt="app logo"/> </div>
+        <div className="Tilt-inner pa3"><img src={face} alt="app logo"/> </div>
       </Tilt>
     </div>
   );
