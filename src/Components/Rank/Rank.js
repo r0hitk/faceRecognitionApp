@@ -1,5 +1,4 @@
 import React from "react";
-import { findRenderedComponentWithType } from "react-dom/test-utils";
 
 const Rank = () => {
   return (
