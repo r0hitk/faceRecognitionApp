@@ -13,8 +13,16 @@ const particleOptions = {
     line_linked: {
       shadow: {
         enable: true,
-        color: "#3CA9D1",
+        color: "white",
         blur: 5
+      }
+    },
+    
+    number:{
+      value: 100,
+      density:{
+        value_area: 700,
+        enable: true
       }
     }
   }
