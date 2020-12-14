@@ -5,6 +5,12 @@ import Logo from "./Components/Logo/Logo";
 import ImageLinkForm from "./Components/ImageLinkForm/ImageLinkForm";
 import Rank from "./Components/Rank/Rank";
 import Particles from "react-particles-js";
+import Clarifai from "clarifai";
+
+const app = new Clarifai.App({
+ apiKey: '74f2cfdb14c94d0fa17ddc7e8d6976c6'
+});
+
 
 const particleOptions = {
   particles: {
@@ -38,6 +44,20 @@ class App extends Component {
     console.log(event.target.value);
   }
 
+onButtonSubmit = () => {
+  console.log("click");
+  app.inputs.create({
+    url: "https://samples.clarifai.com/metro-north.jpg"
+  }).then(
+    function(response) {
+      // do something with response
+    },
+    function(err) {
+      // there was an error
+    }
+  );
+}
+
   render() {
     return (
       <div className="App">
@@ -45,7 +65,7 @@ class App extends Component {
         <Navigation />
         <Logo />
         <Rank />
-        <ImageLinkForm onInputChange={this.onInputChange}/>
+        <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
         {/*
         <FaceRecognition/>
         */}
