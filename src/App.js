@@ -51,6 +51,7 @@ onButtonSubmit = () => {
   }).then(
     function(response) {
       // do something with response
+      console.log(response);
     },
     function(err) {
       // there was an error
