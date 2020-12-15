@@ -6,11 +6,11 @@ import ImageLinkForm from "./Components/ImageLinkForm/ImageLinkForm";
 import Rank from "./Components/Rank/Rank";
 import Particles from "react-particles-js";
 import Clarifai from "clarifai";
+import FaceRecognition from "./Components/FaceRecognition/FaceRecognition";
 
 const app = new Clarifai.App({
- apiKey: '74f2cfdb14c94d0fa17ddc7e8d6976c6'
+  apiKey: "74f2cfdb14c94d0fa17ddc7e8d6976c6",
 });
-
 
 const particleOptions = {
   particles: {
@@ -37,27 +37,34 @@ class App extends Component {
     super();
     this.state = {
       input: "",
+      imageUrl: "",
     };
   }
 
-  onInputChange = (event) =>{
-    console.log(event.target.value);
-  }
+  onInputChange = (event) => {
+    this.setState({
+      input: event.target.value,
+    });
+  };
 
-onButtonSubmit = () => {
-  console.log("click");
-  app.inputs.create({
-    url: "https://samples.clarifai.com/metro-north.jpg"
-  }).then(
-    function(response) {
-      // do something with response
-      console.log(response);
-    },
-    function(err) {
-      // there was an error
-    }
-  );
-}
+  onButtonSubmit = () => {
+    this.setState({
+      imageUrl: this.state.input,
+    });
+    app.inputs
+      .create({
+        url: "https://samples.clarifai.com/metro-north.jpg",
+      })
+      .then(
+        function (response) {
+          // do something with response
+          console.log(response);
+        },
+        function (err) {
+          // there was an error
+        }
+      );
+  };
 
   render() {
     return (
@@ -66,10 +73,11 @@ onButtonSubmit = () => {
         <Navigation />
         <Logo />
         <Rank />
-        <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
-        {/*
-        <FaceRecognition/>
-        */}
+        <ImageLinkForm
+          onInputChange={this.onInputChange}
+          onButtonSubmit={this.onButtonSubmit}
+        />
+        <FaceRecognition />
       </div>
     );
   }
