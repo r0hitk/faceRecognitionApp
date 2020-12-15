@@ -51,19 +51,15 @@ class App extends Component {
     this.setState({
       imageUrl: this.state.input,
     });
-    app.inputs
-      .create({
-        url: "https://samples.clarifai.com/metro-north.jpg",
-      })
-      .then(
-        function (response) {
-          // do something with response
-          console.log(response);
-        },
-        function (err) {
-          // there was an error
-        }
-      );
+
+    app.models.initModel({id: Clarifai.GENERAL_MODEL, version: "aa7f35c01e0642fda5cf400f543e7c40"})
+    .then(generalModel => {
+      return generalModel.predict(this.state.input);
+    })
+    .then(response => {
+      console.log(response);
+      //var concepts = response['outputs'][0]['data']['concepts']
+    })
   };
 
   render() {
@@ -77,7 +73,7 @@ class App extends Component {
           onInputChange={this.onInputChange}
           onButtonSubmit={this.onButtonSubmit}
         />
-        <FaceRecognition />
+        <FaceRecognition imageUrl={this.state.imageUrl}/>
       </div>
     );
   }
