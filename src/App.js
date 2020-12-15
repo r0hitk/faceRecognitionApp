@@ -66,8 +66,10 @@ class App extends Component {
     return (
       <div className="App">
         <Particles className="particles" params={particleOptions} />
-        <Navigation />
+        <Navigation>
         <Logo />
+        </Navigation>
+        
         <Rank />
         <ImageLinkForm
           onInputChange={this.onInputChange}
