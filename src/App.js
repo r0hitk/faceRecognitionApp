@@ -52,14 +52,18 @@ class App extends Component {
       imageUrl: this.state.input,
     });
 
-    app.models.initModel({id: Clarifai.GENERAL_MODEL, version: "aa7f35c01e0642fda5cf400f543e7c40"})
-    .then(generalModel => {
-      return generalModel.predict(this.state.input);
-    })
-    .then(response => {
-      console.log(response);
-      //var concepts = response['outputs'][0]['data']['concepts']
-    })
+    app.models
+      .initModel({
+        id: Clarifai.GENERAL_MODEL,
+        version: "aa7f35c01e0642fda5cf400f543e7c40",
+      })
+      .then((generalModel) => {
+        return generalModel.predict(this.state.input);
+      })
+      .then((response) => {
+        console.log(response);
+        //var concepts = response['outputs'][0]['data']['concepts']
+      });
   };
 
   render() {
@@ -67,15 +71,14 @@ class App extends Component {
       <div className="App">
         <Particles className="particles" params={particleOptions} />
         <Navigation>
-        <Logo />
+          <Logo />
         </Navigation>
-        
         <Rank />
         <ImageLinkForm
           onInputChange={this.onInputChange}
           onButtonSubmit={this.onButtonSubmit}
         />
-        <FaceRecognition imageUrl={this.state.imageUrl}/>
+        <FaceRecognition imageUrl={this.state.imageUrl} />
       </div>
     );
   }
