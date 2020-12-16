@@ -53,7 +53,7 @@ class App extends Component {
     });
 
     app.models.predict(Clarifai.FACE_DETECT_MODEL,this.state.input).then(response=>{
-      console.log('hi',response);
+      console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
     });
   };
 
