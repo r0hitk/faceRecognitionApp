@@ -52,18 +52,9 @@ class App extends Component {
       imageUrl: this.state.input,
     });
 
-    app.models
-      .initModel({
-        id: Clarifai.GENERAL_MODEL,
-        version: "aa7f35c01e0642fda5cf400f543e7c40",
-      })
-      .then((generalModel) => {
-        return generalModel.predict(this.state.input);
-      })
-      .then((response) => {
-        console.log(response);
-        //var concepts = response['outputs'][0]['data']['concepts']
-      });
+    app.models.predict(Clarifai.FACE_DETECT_MODEL,this.state.input).then(response=>{
+      console.log('hi',response);
+    });
   };
 
   render() {
