@@ -32,6 +32,8 @@ const particleOptions = {
   },
 };
 
+
+
 class App extends Component {
   constructor() {
     super();
@@ -42,31 +44,42 @@ class App extends Component {
     };
   }
 
+
+
   calculateFaceOutline = (data) => {
     let apiData = data.outputs[0].data.regions[0].region_info.bounding_box;
 
     let image = document.getElementById("inputimg");
 
-    let width = image.width;
-    let height = image.height;
+    let width = Number(image.width);
+    let height = Number(image.height);
     //console.log(apiData);
     return {
       leftCol: apiData.left_col * width,
       topRow: apiData.top_row * height,
-      rightCol: width - apiData.right_col * width,
-      bottomRow: height - apiData.bottom_row * height,
+      rightCol: width - (apiData.right_col * width),
+      bottomRow: height - (apiData.bottom_row * height),
     };
   };
 
-  defineFace = (box) => {
-    this.setState({ faceBox: box });
+
+
+  defineFace = (faceBox) => {
+  
+    console.log(faceBox);
+    this.setState({ faceBox: faceBox });
+  
   };
+
+
 
   onInputChange = (event) => {
     this.setState({
       input: event.target.value,
     });
   };
+
+
 
   onButtonSubmit = () => {
     this.setState({
@@ -83,6 +96,8 @@ class App extends Component {
       });
   };
 
+
+
   render() {
     return (
       <div className="App">
@@ -95,7 +110,7 @@ class App extends Component {
           onInputChange={this.onInputChange}
           onButtonSubmit={this.onButtonSubmit}
         />
-        <FaceRecognition imageUrl={this.state.imageUrl} />
+        <FaceRecognition box={this.state.faceBox} imageUrl={this.state.imageUrl} />
       </div>
     );
   }
