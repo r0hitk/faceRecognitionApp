@@ -38,14 +38,28 @@ class App extends Component {
     this.state = {
       input: "",
       imageUrl: "",
+      faceBox: ""
     };
   }
 
   calculateFaceOutline = (data) => {
+    let apiData = data.outputs[0].data.regions[0].region_info.bounding_box;
 
-    var apiData= data.outputs[0].data.regions[0].region_info.bounding_box;
-    console.log(apiData);
+    let image = document.getElementById("inputimg");
 
+    let width = image.width;
+    let height = image.height;
+    //console.log(apiData);
+    return {
+      leftCol: apiData.left_col * width,
+      topRow: apiData.top_row * height,
+      rightCol: width - apiData.right_col * width,
+      bottomRow: height - apiData.bottom_row * height,
+    };
+  };
+
+  defineFace = (box) => {
+    this.setState({ faceBox: box });
   };
 
   onInputChange = (event) => {
@@ -62,7 +76,7 @@ class App extends Component {
     app.models
       .predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
       .then((response) => {
-        this.calculateFaceOutline(response);
+        this.defineFace(this.calculateFaceOutline(response));
       })
       .catch((err) => {
         console.log(err);
