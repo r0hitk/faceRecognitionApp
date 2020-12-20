@@ -94,7 +94,7 @@ class App extends Component {
     let page = null;
 
     if (this.state.route === "signIn") {
-      page = <SignIn onRouteChange={()=>this.onRouteChange("home")} />;
+      page = <SignIn onRouteChange={this.onRouteChange} />;
     }
 
     if (this.state.route === "home") {
@@ -116,7 +116,7 @@ class App extends Component {
     return (
       <div className="App">
         <Particles className="particles" params={particleOptions} />
-        <Navigation>
+        <Navigation onRouteChange={this.onRouteChange}>
           <Logo />
         </Navigation>
         {page}
