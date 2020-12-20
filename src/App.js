@@ -86,15 +86,15 @@ class App extends Component {
       });
   };
 
-  onRouteChange = () => {
-    this.setState({ route: "home" });
+  onRouteChange = (routeData) => {
+    this.setState({ route: routeData });
   };
 
   render() {
     let page = null;
 
     if (this.state.route === "signIn") {
-      page = <SignIn onRouteChange={this.onRouteChange} />;
+      page = <SignIn onRouteChange={()=>this.onRouteChange("home")} />;
     }
 
     if (this.state.route === "home") {
