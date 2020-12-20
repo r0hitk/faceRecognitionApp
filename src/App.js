@@ -40,6 +40,7 @@ class App extends Component {
       input: "",
       imageUrl: "",
       faceBox: "",
+      route: "signIn"
     };
   }
 
@@ -86,22 +87,34 @@ class App extends Component {
   };
 
   render() {
+
+    let page = null;
+
+    if(this.state.route === "signIn"){
+      page =  <SignIn />;
+    }
+
+    if(this.state.route === "home"){
+      page =  <div>
+      <Rank />
+      <ImageLinkForm
+        onInputChange={this.onInputChange}
+        onButtonSubmit={this.onButtonSubmit}
+      />
+      <FaceRecognition
+        box={this.state.faceBox}
+        imageUrl={this.state.imageUrl}
+      />
+      </div>;
+    }
+
     return (
       <div className="App">
         <Particles className="particles" params={particleOptions} />
         <Navigation>
           <Logo />
         </Navigation>
-        <SignIn />
-        <Rank />
-        <ImageLinkForm
-          onInputChange={this.onInputChange}
-          onButtonSubmit={this.onButtonSubmit}
-        />
-        <FaceRecognition
-          box={this.state.faceBox}
-          imageUrl={this.state.imageUrl}
-        />
+        {page}
       </div>
     );
   }
