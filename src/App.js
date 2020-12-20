@@ -40,7 +40,7 @@ class App extends Component {
       input: "",
       imageUrl: "",
       faceBox: "",
-      route: "signIn"
+      route: "signIn",
     };
   }
 
@@ -86,26 +86,31 @@ class App extends Component {
       });
   };
 
-  render() {
+  onRouteChange = () => {
+    this.setState({ route: "home" });
+  };
 
+  render() {
     let page = null;
 
-    if(this.state.route === "signIn"){
-      page =  <SignIn />;
+    if (this.state.route === "signIn") {
+      page = <SignIn onRouteChange={this.onRouteChange} />;
     }
 
-    if(this.state.route === "home"){
-      page =  <div>
-      <Rank />
-      <ImageLinkForm
-        onInputChange={this.onInputChange}
-        onButtonSubmit={this.onButtonSubmit}
-      />
-      <FaceRecognition
-        box={this.state.faceBox}
-        imageUrl={this.state.imageUrl}
-      />
-      </div>;
+    if (this.state.route === "home") {
+      page = (
+        <div>
+          <Rank />
+          <ImageLinkForm
+            onInputChange={this.onInputChange}
+            onButtonSubmit={this.onButtonSubmit}
+          />
+          <FaceRecognition
+            box={this.state.faceBox}
+            imageUrl={this.state.imageUrl}
+          />
+        </div>
+      );
     }
 
     return (
