@@ -42,6 +42,7 @@ class App extends Component {
       imageUrl: "",
       faceBox: "",
       route: "signIn",
+      isSignedIn: false,
     };
   }
 
@@ -88,6 +89,12 @@ class App extends Component {
   };
 
   onRouteChange = (routeData) => {
+    if (routeData === "home") {
+      this.setState({ isSignedIn: true });
+    }
+    else{
+      this.setState({ isSignedIn: false });
+    }
     this.setState({ route: routeData });
   };
 
@@ -110,15 +117,17 @@ class App extends Component {
           />
         </div>
       );
-    }
-    else if (this.state.route === "register"){
+    } else if (this.state.route === "register") {
       page = <Register onRouteChange={this.onRouteChange} />;
     }
 
     return (
       <div className="App">
         <Particles className="particles" params={particleOptions} />
-        <Navigation onRouteChange={this.onRouteChange}>
+        <Navigation
+          isSignedIn={this.state.isSignedIn}
+          onRouteChange={this.onRouteChange}
+        >
           <Logo />
         </Navigation>
         {page}
