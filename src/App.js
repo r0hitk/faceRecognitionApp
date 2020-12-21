@@ -5,6 +5,7 @@ import Logo from "./Components/Logo/Logo";
 import ImageLinkForm from "./Components/ImageLinkForm/ImageLinkForm";
 import Rank from "./Components/Rank/Rank";
 import SignIn from "./Components/SignIn/SignIn";
+import Register from "./Components/Register/Register";
 import Particles from "react-particles-js";
 import Clarifai from "clarifai";
 import FaceRecognition from "./Components/FaceRecognition/FaceRecognition";
@@ -95,9 +96,7 @@ class App extends Component {
 
     if (this.state.route === "signIn") {
       page = <SignIn onRouteChange={this.onRouteChange} />;
-    }
-
-    if (this.state.route === "home") {
+    } else if (this.state.route === "home") {
       page = (
         <div>
           <Rank />
@@ -111,6 +110,9 @@ class App extends Component {
           />
         </div>
       );
+    }
+    else if (this.state.route === "register"){
+      page = <Register onRouteChange={this.onRouteChange} />;
     }
 
     return (
