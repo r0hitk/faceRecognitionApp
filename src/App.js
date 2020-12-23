@@ -99,11 +99,14 @@ class App extends Component {
   };
 
   render() {
+
+    const {route,faceBox,imageUrl,isSignedIn} = this.state;
+
     let page = null;
 
-    if (this.state.route === "signIn") {
+    if (route === "signIn") {
       page = <SignIn onRouteChange={this.onRouteChange} />;
-    } else if (this.state.route === "home") {
+    } else if (route === "home") {
       page = (
         <div>
           <Rank />
@@ -112,12 +115,12 @@ class App extends Component {
             onButtonSubmit={this.onButtonSubmit}
           />
           <FaceRecognition
-            box={this.state.faceBox}
-            imageUrl={this.state.imageUrl}
+            box={faceBox}
+            imageUrl={imageUrl}
           />
         </div>
       );
-    } else if (this.state.route === "register") {
+    } else if (route === "register") {
       page = <Register onRouteChange={this.onRouteChange} />;
     }
 
@@ -125,7 +128,7 @@ class App extends Component {
       <div className="App">
         <Particles className="particles" params={particleOptions} />
         <Navigation
-          isSignedIn={this.state.isSignedIn}
+          isSignedIn={isSignedIn}
           onRouteChange={this.onRouteChange}
         >
           <Logo />
