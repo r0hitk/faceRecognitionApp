@@ -46,6 +46,12 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    fetch("http://localhost:3000")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }
+
   calculateFaceOutline = (data) => {
     let apiData = data.outputs[0].data.regions[0].region_info.bounding_box;
     let apiDatats = data.outputs[0].data;
@@ -91,16 +97,14 @@ class App extends Component {
   onRouteChange = (routeData) => {
     if (routeData === "home") {
       this.setState({ isSignedIn: true });
-    }
-    else{
+    } else {
       this.setState({ isSignedIn: false });
     }
     this.setState({ route: routeData });
   };
 
   render() {
-
-    const {route,faceBox,imageUrl,isSignedIn} = this.state;
+    const { route, faceBox, imageUrl, isSignedIn } = this.state;
 
     let page = null;
 
@@ -114,10 +118,7 @@ class App extends Component {
             onInputChange={this.onInputChange}
             onButtonSubmit={this.onButtonSubmit}
           />
-          <FaceRecognition
-            box={faceBox}
-            imageUrl={imageUrl}
-          />
+          <FaceRecognition box={faceBox} imageUrl={imageUrl} />
         </div>
       );
     } else if (route === "register") {
@@ -127,10 +128,7 @@ class App extends Component {
     return (
       <div className="App">
         <Particles className="particles" params={particleOptions} />
-        <Navigation
-          isSignedIn={isSignedIn}
-          onRouteChange={this.onRouteChange}
-        >
+        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}>
           <Logo />
         </Navigation>
         {page}
