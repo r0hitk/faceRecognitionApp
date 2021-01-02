@@ -10,13 +10,12 @@ class SignIn extends React.Component {
   }
 
   onSignInEmailChange = (event) => {
-    console.log(this.state);
     this.setState({
       signInEmail: event.target.value,
     });
   };
 
-  onsignInPasswordChange = (event) => {
+  onSignInPasswordChange = (event) => {
     this.setState({
       signInPassword: event.target.value,
     });
@@ -24,7 +23,21 @@ class SignIn extends React.Component {
 
   onSubmitSignin = (event) => {
     console.log(this.state);
-    this.props.onRouteChange("home");
+    fetch("http://localhost:3000/signin", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: this.state.signInEmail,
+        password: this.state.signInPassword,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data === "success") {
+          this.props.onRouteChange("home");
+        }
+      });
   };
 
   render() {
