@@ -2,7 +2,7 @@ import React from "react";
 
 const Register = ({ onRouteChange }) => {
   return (
-    <article class="br3 ba shadow-3 b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">
+    <article className="br3 ba shadow-3 b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">
       <main className="pa4 black-80">
         <div className="measure">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
