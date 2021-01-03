@@ -82,7 +82,7 @@ class App extends Component {
         email: data.email,
         entries: data.entries,
         joined: data.joined,
-      }
+      },
     });
   };
 
@@ -100,6 +100,23 @@ class App extends Component {
     app.models
       .predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
       .then((response) => {
+        if (response) {
+          fetch("http://localhost:5000/image", {
+            method: "put",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              id: this.state.user.id,
+            }),
+          })
+            .then((response) => response.json())
+            .then((count) => {
+              const temp = { ...this.state.user };
+              temp.entries = count;
+              this.setState({
+                user: temp,
+              });
+            });
+        }
         this.defineFace(this.calculateFaceOutline(response));
       })
       .catch((err) => {
@@ -122,11 +139,13 @@ class App extends Component {
     let page = null;
 
     if (route === "signIn") {
-      page = <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange} />;
+      page = (
+        <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+      );
     } else if (route === "home") {
       page = (
         <div>
-          <Rank name={this.state.user.name} entries={this.state.user.entries}/>
+          <Rank name={this.state.user.name} entries={this.state.user.entries} />
           <ImageLinkForm
             onInputChange={this.onInputChange}
             onButtonSubmit={this.onButtonSubmit}
@@ -135,7 +154,9 @@ class App extends Component {
         </div>
       );
     } else if (route === "register") {
-      page = <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />;
+      page = (
+        <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
+      );
     }
 
     return (
