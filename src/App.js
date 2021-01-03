@@ -122,11 +122,11 @@ class App extends Component {
     let page = null;
 
     if (route === "signIn") {
-      page = <SignIn onRouteChange={this.onRouteChange} />;
+      page = <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange} />;
     } else if (route === "home") {
       page = (
         <div>
-          <Rank />
+          <Rank name={this.state.user.name} entries={this.state.user.entries}/>
           <ImageLinkForm
             onInputChange={this.onInputChange}
             onButtonSubmit={this.onButtonSubmit}
