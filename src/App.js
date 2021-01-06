@@ -9,6 +9,7 @@ import Register from "./Components/Register/Register";
 import Particles from "react-particles-js";
 import Clarifai from "clarifai";
 import FaceRecognition from "./Components/FaceRecognition/FaceRecognition";
+import Banner from "./Components/Banner/Banner";
 
 const app = new Clarifai.App({
   apiKey: "74f2cfdb14c94d0fa17ddc7e8d6976c6",
@@ -164,6 +165,7 @@ class App extends Component {
         <Particles className="particles" params={particleOptions} />
         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}>
           <Logo />
+          <Banner />
         </Navigation>
         {page}
       </div>

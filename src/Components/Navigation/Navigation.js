@@ -4,7 +4,7 @@ const Navigation = (props) => {
 
   if(props.isSignedIn){
     return (
-      <nav style={{display: "flex", justifyContent:"space-between", marginTop: "2rem"}}>
+      <nav style={{display: "flex", justifyContent:"space-between", height: "200px", marginTop: "2rem"}}>
           {props.children}
           <p className="f3 mr2 link dim black underline pa2 pointer" onClick={()=>props.onRouteChange("signIn")}>Sign Out</p>
       </nav>
@@ -12,7 +12,7 @@ const Navigation = (props) => {
   }
   else{
     return (
-      <nav style={{display: "flex", justifyContent:"space-between", marginTop: "2rem"}}>
+      <nav style={{display: "flex", justifyContent:"space-between", height: "200px", marginTop: "2rem"}}>
           {props.children}
           <p className="f3 mr2 link dim black underline pa2 pointer" onClick={()=>props.onRouteChange("signIn")}>Sign In</p>
       </nav>
