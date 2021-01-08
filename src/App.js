@@ -119,7 +119,7 @@ class App extends Component {
               this.setState({
                 user: temp,
               });
-            });
+            }).catch(console.log());
         }
         this.defineFace(this.calculateFaceOutline(response));
       })
