@@ -35,23 +35,26 @@ const particleOptions = {
   },
 };
 
+
+const initialState = {
+  input: "",
+  imageUrl: "",
+  faceBox: "",
+  route: "signIn",
+  isSignedIn: false,
+  user: {
+    id: "",
+    name: "",
+    email: "",
+    entries: 0,
+    joined: "",
+  },
+};
+
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      input: "",
-      imageUrl: "",
-      faceBox: "",
-      route: "signIn",
-      isSignedIn: false,
-      user: {
-        id: "",
-        name: "",
-        email: "",
-        entries: 0,
-        joined: "",
-      },
-    };
+    this.state = initialState;
   }
 
   calculateFaceOutline = (data) => {
@@ -129,7 +132,7 @@ class App extends Component {
     if (routeData === "home") {
       this.setState({ isSignedIn: true });
     } else {
-      this.setState({ isSignedIn: false });
+      this.setState(initialState);
     }
     this.setState({ route: routeData });
   };
