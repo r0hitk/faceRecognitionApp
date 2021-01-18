@@ -59,12 +59,11 @@ class App extends Component {
 
   calculateFaceOutline = (data) => {
     let apiData = data.outputs[0].data.regions[0].region_info.bounding_box;
-    let apiDatats = data.outputs[0].data;
     let image = document.getElementById("inputimg");
 
     let width = Number(image.width);
     let height = Number(image.height);
-    //console.log(apiDatats);
+    
     return {
       leftCol: apiData.left_col * width,
       topRow: apiData.top_row * height,

@@ -29,7 +29,7 @@ class Register extends React.Component {
   };
 
   onSubmitRegister = () => {
-    console.log(this.state);
+    //console.log(this.state);
     fetch("https://frozen-scrubland-61646.herokuapp.com/register", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -41,7 +41,7 @@ class Register extends React.Component {
     })
       .then((response) => response.json())
       .then((user) => {
-        console.log(user);
+        //console.log(user);
         if (user.id) {
           this.props.loadUser(user);
           this.props.onRouteChange("home");
