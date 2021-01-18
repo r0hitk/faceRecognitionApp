@@ -64,7 +64,7 @@ class App extends Component {
 
     let width = Number(image.width);
     let height = Number(image.height);
-    console.log(apiDatats);
+    //console.log(apiDatats);
     return {
       leftCol: apiData.left_col * width,
       topRow: apiData.top_row * height,
@@ -74,7 +74,7 @@ class App extends Component {
   };
 
   defineFace = (faceBox) => {
-    console.log(faceBox);
+    //console.log(faceBox);
     this.setState({ faceBox: faceBox });
   };
 
