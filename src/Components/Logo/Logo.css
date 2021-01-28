@@ -10,3 +10,10 @@
     align-items: center;
     justify-content: center;
 }
+
+@media screen and (max-width:480px){
+    div>img{
+        height: auto;
+        width: 2rem;
+    }
+}
