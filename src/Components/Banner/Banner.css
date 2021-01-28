@@ -10,3 +10,9 @@
         font-size: medium;
     }
 }
+
+@media screen and (max-width:480px){
+    .banner p{
+        font-size: small;
+    }
+}
