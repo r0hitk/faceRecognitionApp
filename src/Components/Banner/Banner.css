@@ -4,3 +4,9 @@
     text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
     text-decoration: underline;
 }
+
+@media screen and (max-width:720px){
+    .banner p{
+        font-size: medium;
+    }
+}
