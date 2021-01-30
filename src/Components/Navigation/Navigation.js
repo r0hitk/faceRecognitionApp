@@ -6,7 +6,7 @@ const Navigation = (props) => {
     return (
       <nav style={{display: "flex", justifyContent:"space-between", height: "200px", marginTop: "2rem"}}>
           {props.children}
-          <p className="f3 mr2 link dim black underline pa2 pointer" onClick={()=>props.onRouteChange("signIn")}>Sign Out</p>
+          <p className="f3 mr2 ml1 link dim black underline pa2 pointer" onClick={()=>props.onRouteChange("signIn")}>Sign Out</p>
       </nav>
     );
   }
@@ -14,7 +14,7 @@ const Navigation = (props) => {
     return (
       <nav style={{display: "flex", justifyContent:"space-between", height: "200px", marginTop: "2rem"}}>
           {props.children}
-          <p className="f3 mr2 link dim black underline pa2 pointer" onClick={()=>props.onRouteChange("signIn")}>Sign In</p>
+          <p className="f3 mr2 ml1 link dim black underline pa2 pointer" onClick={()=>props.onRouteChange("signIn")}>Sign In</p>
       </nav>
     );
   }

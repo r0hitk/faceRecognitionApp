@@ -1,0 +1,12 @@
+  
+  @media screen and (max-width: 720px) {
+    .signinTxt {
+      font-size: 40px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .signinTxt {
+        font-size: 25px;
+    }
+  }

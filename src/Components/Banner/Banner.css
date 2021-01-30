@@ -1,31 +1,25 @@
-.banner{
-    font: 400 40px/1.5 'Pacifico', Helvetica, sans-serif;
-    color:black;
-    text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
+.banner {
+  font: 400 50px/1 "Pacifico", Helvetica, sans-serif;
+  color: black;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1), 7px 7px 0px rgba(0, 0, 0, 0.05);
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 720px) {
+  .banner {
+    font: 300 40px/1 "Pacifico", Helvetica, sans-serif;
+    color: black;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1), 7px 7px 0px rgba(0, 0, 0, 0.05);
     text-decoration: underline;
-    height: auto;
+  }
 }
 
-@media screen and (max-width:720px){
-    .banner{
-        font: 300 25px/1 'Pacifico', Helvetica, sans-serif;
-        color:black;
-        text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
-        text-decoration: underline;
-        padding-top: auto;
-        padding-bottom: auto;
-        height: auto;
-    }
-}
-
-@media screen and (max-width:480px){
-    .banner{
-        font: 200 15px/1 'Pacifico', Helvetica, sans-serif;
-        color:black;
-        text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
-        text-decoration: underline;
-        padding-top: auto;
-        padding-bottom: auto;
-        height: auto;
-    }
+@media screen and (max-width: 600px) {
+  .banner {
+    font: 200 25px/0.5 "Pacifico", Helvetica, sans-serif;
+    color: black;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1), 7px 7px 0px rgba(0, 0, 0, 0.05);
+    text-decoration: underline;
+    padding-top: 12%;
+  }
 }
