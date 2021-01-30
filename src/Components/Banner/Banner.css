@@ -1,18 +1,23 @@
 .banner{
-    font: 400 60px/1.5 'Pacifico', Helvetica, sans-serif;
+    font: 400 50px/1.5 'Pacifico', Helvetica, sans-serif;
     color:black;
     text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
     text-decoration: underline;
 }
 
 @media screen and (max-width:720px){
-    .banner p{
-        font-size: medium;
+    .banner{
+        font: 400 25px/1 'Pacifico', Helvetica, sans-serif;
+        color:black;
+        text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
+        text-decoration: underline;
+        padding-top: auto;
+        padding-top: auto;
     }
 }
 
 @media screen and (max-width:480px){
     .banner p{
-        font-size: small;
+        font-size: 20px;
     }
 }
