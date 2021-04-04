@@ -2,7 +2,6 @@
   font: 400 50px/1 "Pacifico", Helvetica, sans-serif;
   color: black;
   text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1), 7px 7px 0px rgba(0, 0, 0, 0.05);
-  text-decoration: underline;
 }
 
 @media screen and (max-width: 720px) {
@@ -10,7 +9,6 @@
     font: 300 40px/1 "Pacifico", Helvetica, sans-serif;
     color: black;
     text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1), 7px 7px 0px rgba(0, 0, 0, 0.05);
-    text-decoration: underline;
   }
 }
 
@@ -19,7 +17,6 @@
     font: 200 25px/0.5 "Pacifico", Helvetica, sans-serif;
     color: black;
     text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1), 7px 7px 0px rgba(0, 0, 0, 0.05);
-    text-decoration: underline;
     padding-top: 12%;
   }
 }
